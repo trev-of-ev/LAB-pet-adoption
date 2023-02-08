@@ -8,3 +8,19 @@
     text-align: center;
 }
 
+.card h1 {
+    background-color: lightgray;
+}
+
+.card-image {
+    margin: 25px;
+}
+
+.card-type {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.card img {
+    border: 3px solid lightgrey;
+}

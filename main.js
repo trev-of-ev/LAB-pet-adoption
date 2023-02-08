@@ -248,23 +248,19 @@ const renderToDom = (array) => {
   // Empty variable to hold DOM elements
   let domString = "";
   for (const pet of array) {
-    domString += `<div class="card" style="width: 18rem;">
-    <h1>${pet.name}</h1>
-    <img src=${pet.imageUrl} class="card-img-top" alt="...">
-    <div class="card-body">
-      
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>`;
+    domString += `
+    <div class="card" style="width: 18rem;">
+      <h1>${pet.name}</h1>
+      <div class="card-image">
+        <img src=${pet.imageUrl} class="card-img-top" alt="...">
+      </div>
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+        <h1 class="card-type" style="background-color: ${pet.color};">${pet.type}</h1>
+    </div>`;
   }
   app.innerHTML = domString;
 }
-
-renderToDom(pets);
-
-
-
-
 
 renderToDom(pets);
