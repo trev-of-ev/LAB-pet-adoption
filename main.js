@@ -13,7 +13,7 @@ const pets = [
       color: "Brown",
       specialSkill: "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
       type: "dino",
-      imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg",
+      imageUrl: "https://images2.alphacoders.com/546/thumb-1920-546340.jpg",
     },
     {
       id: 3,
@@ -85,7 +85,7 @@ const pets = [
       color: "Orange",
       specialSkill: "Can be around food without staring creepily at it.",
       type: "dino",
-      imageUrl: "http://www.cantref.com/userfiles/events/walking%20dino.jpg?w=600"
+      imageUrl: "https://images4.fanpop.com/image/photos/15300000/Beagle-puppy-dog-hound-dogs-15363092-1600-1200.jpg"
     },
     {
       id: 12,
@@ -101,7 +101,7 @@ const pets = [
       color: "Red",
       specialSkill: "Expertly quotes and recognizes dialogue from early seasons of The Simpsons.",
       type: "dog",
-      imageUrl: "http://1kjkdg1axrkd2g03cnboj761.wpengine.netdna-cdn.com/wp-content/uploads/2017/12/braydon-anderson-105552-e1512684107659.jpg"
+      imageUrl: "https://www.hdnicewallpapers.com/Walls/Big/Dog/Dog_Breed_Pug_Face_Photo.jpg"
     },
     {
       id: 14,
@@ -250,14 +250,14 @@ const renderToDom = (array) => {
   for (const pet of array) {
     domString += `
     <div class="card" style="width: 18rem;">
-      <h1>${pet.name}</h1>
+      <h3>${pet.name}</h3>
       <div class="card-image">
         <img src=${pet.imageUrl} class="card-img-top" alt="...">
       </div>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
-        <h1 class="card-type" style="background-color: ${pet.color};">${pet.type}</h1>
+        <p class="card-type" style="background-color: ${pet.color};">${pet.type}</p>
     </div>`;
   }
   app.innerHTML = domString;
