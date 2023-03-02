@@ -1,0 +1,21 @@
+#app {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    background-color: lightgray;
+}
+
+.card-image {
+    margin: 25px;
+}
+
+.card img {
+    border: 3px solid lightgrey;
+}
