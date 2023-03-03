@@ -241,10 +241,15 @@ const pets = [
     }
   ];
 
-const app = document.querySelector("#app");
+const btn = document.querySelector("#btn-cats");
 
 // Render function adds elements to DOM
-const renderToDom = (array) => {
+const renderToDom = (divId, htmlToRender) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = htmlToRender;
+}
+
+const cardsOnDom = (array) => {
   // Empty variable to hold DOM elements
   let domString = "";
   for (const pet of array) {
@@ -260,7 +265,31 @@ const renderToDom = (array) => {
         <p class="card-type" style="background-color: ${pet.color};">${pet.type}</p>
     </div>`;
   }
-  app.innerHTML = domString;
+  renderToDom("#app", domString);
 }
 
-renderToDom(pets);
+// function to filter teammates with specific favorite color
+const filter = (array, typeString) => {
+  const typeArray = [];
+
+  // array.forEach((item) => {
+  //   if (item.favoriteColor === colorString) {
+  //     colorArray.push(item);
+  //   }
+  // });
+
+  for (const pet of array) {
+    if (pet.type === typeString) {
+      typeArray.push(pet);
+    }
+  }
+
+  return typeArray;
+}
+
+btn.addEventListener('click', () => {
+  const showCats = filter(pets, 'cat');
+  console.log('clicked the cat button');
+  cardsOnDom(showCats);
+});
+
