@@ -241,14 +241,17 @@ const pets = [
     }
   ];
 
+// Variables
 const btn = document.querySelector("#btn-cats");
 
-// Render function adds elements to DOM
+// Functions
+// Render function adds elements to DOM 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
 }
 
+// Get the cards on the DOM
 const cardsOnDom = (array) => {
   // Empty variable to hold DOM elements
   let domString = "";
