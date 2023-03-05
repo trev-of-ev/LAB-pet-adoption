@@ -242,7 +242,10 @@ const pets = [
   ];
 
 // Variables
-const btn = document.querySelector("#btn-cats");
+const catBtn = document.querySelector("#btn-cats");
+const dogBtn = document.querySelector("#btn-dogs");
+const dinoBtn = document.querySelector("#btn-dinos");
+const allPetsBtn = document.querySelector("#btn-pets");
 
 // Functions
 // Render function adds elements to DOM 
@@ -290,9 +293,28 @@ const filter = (array, typeString) => {
   return typeArray;
 }
 
-btn.addEventListener('click', () => {
-  const showCats = filter(pets, 'cat');
+catBtn.addEventListener('click', () => {
+  const showPets = filter(pets, 'cat');
   console.log('clicked the cat button');
-  cardsOnDom(showCats);
+  cardsOnDom(showPets);
 });
+
+dogBtn.addEventListener('click', () => {
+  const showPets = filter(pets, 'dog');
+  console.log('clicked the dog button');
+  cardsOnDom(showPets);
+});
+
+dinoBtn.addEventListener('click', () => {
+  const showPets = filter(pets, 'dino');
+  console.log('clicked the dino button');
+  cardsOnDom(showPets);
+});
+
+allPetsBtn.addEventListener('click', () => {
+  console.log('clicked the all button');
+  cardsOnDom(pets);
+});
+
+
 
