@@ -1,6 +1,7 @@
 #app {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -14,8 +15,13 @@
 
 .card-image {
     margin: 25px;
+    width: 225px;
 }
 
 .card img {
     border: 3px solid lightgrey;
+}
+
+.header-buttons {
+    text-align: center;
 }
