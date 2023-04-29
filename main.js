@@ -247,7 +247,7 @@ const dogBtn = document.querySelector("#btn-dogs");
 const dinoBtn = document.querySelector("#btn-dinos");
 const allPetsBtn = document.querySelector("#btn-pets");
 const addPetBtn = document.querySelector("#pet-submit");
-const petForm = document.querySelector("pet-form");
+
 let maxId = Math.max(...pets.map(obj => obj.id));
 
 // Functions
@@ -318,14 +318,6 @@ allPetsBtn.addEventListener('click', () => {
   console.log('clicked the all button');
   cardsOnDom(pets);
 });
-
-// Add an event listener to the button
-addPetBtn.addEventListener('submit', (event) => {
-  
-  event.preventDefault();
-  
-  // Increment the max id value to generate a new id
-  let newId = maxId + 1;
   
   // Get the input values from the form
   const petNameInput = document.getElementById('pet-name');
@@ -346,22 +338,28 @@ addPetBtn.addEventListener('submit', (event) => {
       return "dino";
     }
   }
+
+  const petForm = document.querySelector("#pet-form");
+  // Add an event listener to the button
+petForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   
-  // Create a new object with the input values
-  let newPetObj = { 
-    id: newId, 
-    name: newPetName,
-    color: newPetColor,
-    specialSkill: newPetSkill,
-    type: newPetType(),
-    imageUrl: newPetImage
-  };
-  
+    // Create a new object with the input values
+    let newPetObj = { 
+      id: pets.length + 1, 
+      name: newPetName,
+      color: newPetColor,
+      specialSkill: newPetSkill,
+      type: newPetType(),
+      imageUrl: newPetImage
+    };
+
   // Add the object to the array
   pets.push(newPetObj);
-
+  cardsOnDom(pets)
+  
   // Log the updated array to the console
-  console.log("clicked the add button");
+  console.log(pets);
 });
 
 
