@@ -269,7 +269,7 @@ const cardsOnDom = (array) => {
         <img src=${pet.imageUrl} class="card-img-top" alt="...">
       </div>
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" id="delete--${pet.id} petDelete" class="btn btn-danger">Delete</button>
       </div>
         <p class="card-type" style="background-color: ${pet.color};">${pet.type}</p>
     </div>`;
@@ -341,7 +341,7 @@ allPetsBtn.addEventListener('click', () => {
 
   const petForm = document.querySelector("#pet-form");
   // Add an event listener to the button
-petForm.addEventListener('submit', (e) => {
+  petForm.addEventListener('submit', (e) => {
   e.preventDefault();
   
     // Create a new object with the input values
@@ -363,3 +363,29 @@ petForm.addEventListener('submit', (e) => {
 });
 
 
+  // ******************** //
+  // ****** DELETE ****** //
+  // ******************** //
+
+  // Here we will be using event bubbling
+  // 1. Target the app div
+  // 2. Add an event listener to capture clicks
+  // 3. check e.target.id includes "delete"
+  // 4. add logic to remove from array
+  // 5. Repaint the DOM with the updated array
+  const petDelete = document.querySelector("#app");
+
+  petDelete.addEventListener('click', (e) => {
+    if (e.target.id.includes("delete")) {
+      const [, id] = e.target.id.split("--");
+
+      const index = pets.findIndex(e => e.id === Number(id));
+
+      pets.splice(index, 1);
+
+      cardsOnDom(pets);
+      console.warn(pets);
+    }
+  });
+
+  cardsOnDom(pets);
